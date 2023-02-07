@@ -35,8 +35,9 @@ def visualize_fd(data, title):
         xp = w*(i-n_cls/2 + 1)
         g = plt.bar(x=xs+xp, height=values[i], width=w, align='center', label=cf)
         for j, x in enumerate(xs):
-            v = values[i][j]
-            plt.text(x+xp, v, f'{v:.1f}', ha='center')
+            if j < len(values[i]):
+                v = values[i][j]
+                plt.text(x+xp, v, f'{v:.1f}', ha='center')
         gs.append(g)
 
     plt.xticks(xs+w/2, names)
@@ -74,7 +75,8 @@ def visualize_pr(data, title):
     COLORS = plt.rcParams["axes.prop_cycle"].by_key()['color']
     for i, cf in enumerate(classifiers):
         for j, name in enumerate(names):
-            plt.scatter(xs[i][j], ys[i][j], c=COLORS[j%len(COLORS)], marker=MARKERS[(i+j//len(COLORS))%len(MARKERS)], label=f'{cf} - {name}')
+            if j < len(xs[i]) and len(ys[i]):
+                plt.scatter(xs[i][j], ys[i][j], c=COLORS[j%len(COLORS)], marker=MARKERS[(i+j//len(COLORS))%len(MARKERS)], label=f'{cf} - {name}')
     plt.xlim(0,1)
     plt.ylim(0,1)
     plt.xlabel('Recall')
