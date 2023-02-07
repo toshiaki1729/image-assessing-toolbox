@@ -53,7 +53,7 @@ class DeepDanbooru(Classifier):
         for batch in tqdm(dataloader):
             batch:torch.Tensor = batch.to(self.device)
 
-            with torch.no_grad(), torch.autocast('cuda'):
+            with torch.no_grad():
                 pred = self.model(batch).detach().cpu().numpy()
 
             pred_arr[start_idx:start_idx + pred.shape[0]] = pred

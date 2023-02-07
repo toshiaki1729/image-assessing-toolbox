@@ -2,6 +2,7 @@ import os
 import argparse
 from typing import Dict, List
 import csv
+import json
 
 from tqdm import tqdm
 import numpy as np
@@ -18,6 +19,7 @@ def parse_args():
     parser.add_argument('fake_dir', type=str, help='Fake features directory (load all npz files inside)')
     parser.add_argument('out_path', type=str, help='Path to output csv file')
     parser.add_argument('--recursive', '-r', action='store_true', help='Load features recursively from given directory')
+    parser.add_argument('--json', '-j', type=str, nargs='?', default=None, const='', help='Output json file')
     return parser.parse_args()
 
 
@@ -82,6 +84,22 @@ def main(opts):
                 for name in fake_names:
                     row.append(res_cls.get(name))
             writer.writerow(row)
+    
+    if opts.json is not None:
+        json_path = os.path.splitext(save_path)[0] + '.json' if not opts.json else opts.json
+        print(f'Writing results to {json_path}')
+        json_data = []
+        for classifier in sorted(classifier_set):
+            res_cls = results.get(classifier)
+            if not res_cls:
+                continue
+            for name in fake_names:
+                value = res_cls.get(name)
+                if value is None:
+                    continue
+                json_data.append({'classifier':classifier, 'name':name, 'value': value})
+        with open(json_path, mode='w', encoding='utf8', newline='') as f:
+            json.dump(json_data, f, indent=4)
 
 
 if __name__ == '__main__':
