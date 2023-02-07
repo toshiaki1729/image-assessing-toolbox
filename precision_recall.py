@@ -101,7 +101,7 @@ def main(opts):
                 value = res_cls.get(name)
                 if value is None:
                     continue
-                json_data.append({'classifier':classifier, 'name':name, 'value': value})
+                json_data.append({'classifier':classifier, 'name':name, 'precision': value.precision, 'recall': value.recall})
         with open(json_path, mode='w', encoding='utf8', newline='') as f:
             json.dump(json_data, f, indent=4)
 
