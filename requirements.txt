@@ -1,0 +1,10 @@
+numpy
+scipy
+Pillow
+torch
+torchvision
+tqdm
+pytorch-fid
+huggingface_hub
+onnxruntime-gpu
+matplotlib
