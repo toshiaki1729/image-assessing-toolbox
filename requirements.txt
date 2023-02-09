@@ -6,5 +6,4 @@ torchvision
 tqdm
 pytorch-fid
 huggingface_hub
-onnxruntime-gpu
 matplotlib
