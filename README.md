@@ -20,7 +20,7 @@ Toolbox for assessing generative models working with PyTorch
     - "similar" because it may not always use Inception v3
     - Approximate the distribution of feature vectors as multidimensional Gaussian and compute the Fréchet distance between two Gaussians.
   - Using [pytorch-fid](https://github.com/mseitzer/pytorch-fid)
-- **Improved Precision and Recall Metrics**
+- **Improved Precision and Recall Metric**
   - Evaluate the similarity between two image datasets with [Improved Precision and Recall Metric](https://arxiv.org/abs/1904.06991)
     - Approximate the distribution of feature vectors as a set of hyperspheres with radius equals to distance of their kth nearest neighbor.
   - The code is based on [the official TensorFlow implemention](https://github.com/kynkaat/improved-precision-and-recall-metric) and [the PyTorch implemention by youngjung](https://github.com/youngjung/improved-precision-and-recall-metric-pytorch)
@@ -54,3 +54,7 @@ pip install -r requirements.txt
 1. Use `frechet_distance.py` or  `precision_recall.py` to evaluate their similality
 1. See the output csv
     - Use `simple_visualizer.py` if needed
+  
+It is said that **at least** 10,000 images are needed to get meaningful result.  
+For reference, 50,000 images are used for assessing in the papers of FID or IPR.  
+This is because distribution of the feature vectors is extremely sparse since their dimensions are so high (like 512, 2048).
