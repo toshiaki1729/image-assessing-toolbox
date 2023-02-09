@@ -6,12 +6,12 @@ Toolbox for assessing generative models working with PyTorch
 ## Features
 - **Generate feature vectors from images**
   - With classifiers trained on ImageNet dataset
-    - **Inception v3**
+    - **Inception v3** ([Paper (arXiv)](https://arxiv.org/abs/1512.00567))
       - [pytorch-fid](https://github.com/mseitzer/pytorch-fid) is used internally and it's model has the same weights as the original implemention of FID ([Paper (arXiv)](https://arxiv.org/abs/1706.08500), [GitHub](https://github.com/bioinf-jku/TTUR))
-    - **VGG-16**
+    - **VGG-16** ([Paper (arXiv)](https://arxiv.org/abs/1409.1556))
       - Proposed model in *Improved Precision and Recall Metric for Assessing Generative Models* by Kynkäänniemi et al. ([Paper (arXiv)](https://arxiv.org/abs/1904.06991), [GitHub](https://github.com/kynkaat/improved-precision-and-recall-metric))
   - With classifiers trained on danbooru dataset (may be better for anime-like images)
-    - [**danbooru-pretrained**](https://github.com/RF5/danbooru-pretrained) (pretrained ResNet50)
+    - [**danbooru-pretrained**](https://github.com/RF5/danbooru-pretrained) (pretrained **ResNet50** ([Paper (arXiv)](https://arxiv.org/abs/1512.03385)))
       - Use of this model as a classifier is proposed as [DaFID](https://github.com/birdManIkioiShota/DaFID-512) by birdManIkioiShota
   - Save the vectors as `.npz` files
 - **FID-like score**
