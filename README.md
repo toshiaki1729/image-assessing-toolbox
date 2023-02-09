@@ -27,11 +27,11 @@ Toolbox for assessing generative models working with PyTorch
 
 
 
-## Requirements & Install
-All required libraries are listed in `requirements.txt` 
-### Requirements
-[Python 3](https://www.python.org/) (developed with 3.10.7)  
-[PyTorch](https://pytorch.org/) (developed with 1.13.1+cu117,  CUDA is needed if you want to use danbooru-pretrained)   
+## Requirements
+All required libraries are listed in `requirements.txt`  
+[**Python 3**](https://www.python.org/) (developed with 3.10.7)  
+[**PyTorch**](https://pytorch.org/) (developed with 1.13.1+cu117,  CUDA is needed if you want to use danbooru-pretrained)   
+
 I recommend you to use venv to separate environment.  
 ```
 python -m venv venv
@@ -42,8 +42,7 @@ or
 python -m venv --system-site-packages venv
 ./venv/Scripts/activate
 ```
-for minimal install.
-### Install
+for minimal install.  
 After setup above, run following command.
 ```
 pip install -r requirements.txt
