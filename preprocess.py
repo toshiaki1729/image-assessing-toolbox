@@ -32,7 +32,7 @@ def parse_args():
                 print(f'{argname}={arg[0]} will be used for all classifiers.')
                 arg = arg * min_length
             elif len(arg) < min_length:
-                print('The number of batch sizes are fewer than the classifiers. Default value (50) will be used with remainings.')
+                print(f'The number of batch sizes are fewer than the classifiers. Default value {default} will be used with remainings.')
                 arg = arg + [default]*(min_length - len(arg))
         elif isinstance(arg, int):
             print(f'{argname}={arg} will be used for all classifeirs.')
