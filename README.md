@@ -54,3 +54,6 @@ pip install -r requirements.txt
 1. Use `frechet_distance.py` or  `precision_recall.py` to evaluate their similality
 1. See the output csv
     - Use `simple_visualizer.py` if needed
+  
+Please note that **at least** 10,000 images are needed to get meaningful result.  
+This is because distribution of feature vectors is extremely sparse since their dimensions are so high (like 512, 2048),
