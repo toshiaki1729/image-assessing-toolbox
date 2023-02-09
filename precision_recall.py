@@ -17,7 +17,7 @@ def parse_args():
     parser.add_argument('fake_dir', type=str, help='Fake features directory (load all npz files inside)')
     parser.add_argument('out_path', type=str, help='Path to output csv file')
     parser.add_argument('--recursive', '-r', action='store_true', help='Load features recursively from given directory')
-    parser.add_argument('-k', type=int, default=3, help='K-value used for estimating the manifold to which the dataset belongs in the feature space (feature vectors closer than k-neighbors of any dataset are approximated as belonging to the manifold)')
+    parser.add_argument('-k', type=int, default=3, help='K-value used for estimating the manifold to which the dataset belongs in the feature space (feature vectors closer than kth nearest neighbors of any dataset are approximated as belonging to the manifold)')
     parser.add_argument('--device', '-d', type=str, default='cuda', choices=['cuda', 'cpu'], help='Which device to use')
     parser.add_argument('--json', '-j', type=str, nargs='?', default=None, const='', help='Output json file')
     return parser.parse_args()
