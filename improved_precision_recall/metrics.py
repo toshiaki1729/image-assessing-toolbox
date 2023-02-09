@@ -1,4 +1,11 @@
 from . import utilities
+from . import Manifold
+
+
+class PrecisionRecall:
+    def __init__(self, precision, recall):
+        self.precision = precision
+        self.recall = recall
 
 
 # brought from
@@ -13,3 +20,9 @@ def compute_metrics(manifold, features, device='cuda'):
         # https://github.com/kynkaat/improved-precision-and-recall-metric/blob/master/precision_recall.py
         count += (dist[:, i] <= manifold.radii).any()
     return count / num_subjects
+
+
+def get_precision_and_recall(x:Manifold, y:Manifold, device='cuda'):
+    precision = compute_metrics(x, y.features, device)
+    recall = compute_metrics(y, x.features, device)
+    return PrecisionRecall(precision, recall)

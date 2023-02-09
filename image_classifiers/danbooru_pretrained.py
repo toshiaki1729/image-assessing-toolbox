@@ -14,7 +14,7 @@ from .utilities import ImageDataset
 
 # brought from DaFID-512 by birdManIkoiShota and modified
 # https://github.com/birdManIkioiShota/DaFID-512
-class DeepDanbooru(Classifier):
+class DanbooruPretrained(Classifier):
     def __init__(self, dims, device):
         super().__init__(device)
         if dims not in {512, 4096, 6000}:
@@ -63,14 +63,14 @@ class DeepDanbooru(Classifier):
 
 
 
-class DaFID512(DeepDanbooru):
+class DaFID512(DanbooruPretrained):
     def __init__(self, device):
         super().__init__(512, device)
 
-class DaFID4096(DeepDanbooru):
+class DaFID4096(DanbooruPretrained):
     def __init__(self, device):
         super().__init__(4096, device)
 
-class DaFID6000(DeepDanbooru):
+class DaFID6000(DanbooruPretrained):
     def __init__(self, device):
         super().__init__(6000, device)
