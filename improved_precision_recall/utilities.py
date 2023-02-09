@@ -31,5 +31,6 @@ def compute_pairwise_distances(feat_x, feat_y=None, device='cuda') -> np.ndarray
         ysq = ysq.mT.repeat([nx, 1])
         dsq = xsq + ysq - 2*torch.matmul(x, y.mT)
         dsq = torch.maximum(dsq, torch.zeros_like(dsq))
-        d = dsq.sqrt()
-    return d.detach().cpu().numpy()
+        # sqrt on youngjung's implemention
+        # d = d.sqrt()
+    return dsq.detach().cpu().numpy()
