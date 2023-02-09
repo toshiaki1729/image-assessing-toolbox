@@ -16,9 +16,12 @@ Toolbox for assessing generative models working with PyTorch
   - Save the vectors as `.npz` files
 - **FID-like score**
   - Evaluate the similarity between two datasets by using the method similar to FID
-  - Using [pytorch-fid](https://github.com/mseitzer/pytorch-fid), approximate the distributions of feature vectors as multidimensional Gaussian and compute the Fréchet distance between two Gaussians.
+    - "similar" because it may not always use Inception v3
+    - Approximate the distributions of feature vectors as multidimensional Gaussian and compute the Fréchet distance between two Gaussians.
+  - Using [pytorch-fid](https://github.com/mseitzer/pytorch-fid)
 - **Improved Precision and Recall Metrics**
   - Evaluate the similarity between two datasets with [Improved Precision and Recall Metric](https://arxiv.org/abs/1904.06991)
+    - Approximate the distributions of feature vectors as set of hyperspheres with radius equals to distance of their kth nearest neighbor.
   - The code is based on [the official TensorFlow implemention](https://github.com/kynkaat/improved-precision-and-recall-metric) and [the PyTorch implemention by youngjung](https://github.com/youngjung/improved-precision-and-recall-metric-pytorch)
 
 
